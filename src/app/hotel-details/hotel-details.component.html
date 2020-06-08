@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Hotel Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Hotel Website</th>
+          <th scope="col">Most recent Report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <i class="fa fa-building" aria-hidden="true"></i> {{ hotel[8] }}
+          </td>
+          <td>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {{ getAddress(hotel[9][0]) }}
+          </td>
+          <td>
+            <a
+              href="tel:+1{{ hotel[10] }}"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="{{ hotel[10] }}"
+              class="btn btn-info btn-sm"
+              >Call Hotel</a
+            >
+          </td>
+          <td>
+            <a
+              href="{{ hotel[11][0] }}"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="{{ hotel[11][0] }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-info btn-sm"
+            >
+              Visit Website</a
+            >
+          </td>
+          <td>
+            <a
+              href="{{ hotel[12][0] }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-info btn-sm"
+            >
+              View Report</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- app.component.html -->
+    <div id="map-container" *ngIf="latitude && longitude">
+      <agm-map [latitude]="latitude" [longitude]="longitude">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+    <a
+      href="javascript:void(0);"
+      class="btn btn-dark btn-sm mt-4"
+      (click)="goBack()"
+      >Go Back</a
+    >
+  </div>
+</div>
